@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "d058f133-101f-4c4a-b8c0-f19e5caa818d",
+		"name": "my-pay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17542415",
+		"_collection_link": "https://solar-escape-400525.postman.co/workspace/ecommerce~e729b0e3-85b4-4185-9113-b0abd0a031fa/collection/17542415-d058f133-101f-4c4a-b8c0-f19e5caa818d?action=share&creator=17542415&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Request OTP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"otpIdentifier\":\"0779845798\",\r\n    \"otpType\":\"SIGNUP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/otp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate OTP",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"otpIdentifier\": \"0779845798\",\r\n    \"code\": \"8788\",\r\n    \"otpType\": \"SIGNUP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/otp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"12345\",\r\n    \"userDto\": {\r\n        \"phoneNo\": \"6565\",\r\n        \"firstName\": \"5783\",\r\n        \"lastName\": \"0779845798\",\r\n        \"dob\": \"1994-07-21\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get counter By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/counters/4d4f4cc4-8914-4e33-a07f-0a930b1e990e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"counters",
+						"4d4f4cc4-8914-4e33-a07f-0a930b1e990e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cardName\": \"nimes\",\r\n    \"cardNo\": \"4216-3434-3434-4343\",\r\n    \"cvv\": \"232\",\r\n    \"expires\": \"2025-01-01\",\r\n    \"cardType\": \"CREDIT\",\r\n    \"userId\":  \"d6c124bb-6d4f-4777-b680-14c1ff042d0a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/cards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"d6c124bb-6d4f-4777-b680-14c1ff042d0a\",\r\n    \"cardId\": \"76eb7c02-b80d-4569-a3a2-245062e5c5e4\",\r\n    \"counterId\": \"c231a509-28d1-4c2f-b8e6-47cf88b1f2f2\",\r\n    \"amount\": \"100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users/d6c124bb-6d4f-4777-b680-14c1ff042d0a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"d6c124bb-6d4f-4777-b680-14c1ff042d0a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"12345\",\r\n    \"userDto\": {\r\n        \"firstName\": \"5783\",\r\n        \"lastName\": \"0779845798\",\r\n        \"dob\": \"1994-07-21\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get card by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/cards/76eb7c02-b80d-4569-a3a2-245062e5c5e4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"cards",
+						"76eb7c02-b80d-4569-a3a2-245062e5c5e4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Payment history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/payments/d6c124bb-6d4f-4777-b680-14c1ff042d0a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"payments",
+						"d6c124bb-6d4f-4777-b680-14c1ff042d0a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
